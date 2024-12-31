@@ -3,25 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
     <title>Paiement Acompte</title>
     <script src="https://js.stripe.com/v3/"></script>
-    <style>
-        #card-element {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-    </style>
 </head>
 <body>
-    <h1>Régler votre acompte</h1>
-    <form id="payment-form">
-        <div id="card-element"></div>
-        <button type="submit" id="submit-button">Payer 20€</button>
-        <p id="payment-message" style="display: none;"></p>
-    </form>
+    <div class="container">
+        <div class="glass-card">
+            <h1>Régler votre acompte</h1>
+            <form id="payment-form">
+                <div id="card-element"></div>
+                <button type="submit" id="submit-button">Payer 20€</button>
+                <p id="payment-message" style="display: none;"></p>
+            </form>
+        </div>
+    </div>
 
     <script>
         const stripe = Stripe("pk_test_51Qbk50Ba5thYVV4ZWI8SzWTqVHfIRLAyCKTH5a7UIzaabxqfQ0LdNNavVZSZcLhBKnPm8uX3N1GwevqL8i0HlG3o001S9ZE7vU");

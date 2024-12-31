@@ -1,0 +1,10 @@
+@use 'variables';
+
+@mixin glassmorphism($blur: 15px, $opacity: 0.2) {
+    background: rgba(255, 255, 255, $opacity);
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+    border: 1px solid variables.$color-accent;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
