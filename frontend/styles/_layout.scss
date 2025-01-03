@@ -1,0 +1,20 @@
+@use 'variables';
+@use 'mixins';
+@use 'base';
+@use 'components';
+
+// /* STYLES SPÉCIFIQUES POUR MOBILE */
+@include mixins.mobile {
+    body {
+        background-color: #FFC0ED;
+    }
+
+    .glass-card {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    #payment-form {
+        max-width: 90%;  // Réduit la taille du formulaire sur mobile
+    }
+}
