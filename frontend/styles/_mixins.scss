@@ -8,3 +8,10 @@
     border-radius: 15px;
     box-shadow: 0px 4px 12px 0px rgba(164, 25, 88, 0.20);
 }
+
+// Mixin pour les tailles de mobile (max-width: 767px)
+@mixin mobile {
+    @media (max-width: 767px) {
+        @content;
+    }
+}

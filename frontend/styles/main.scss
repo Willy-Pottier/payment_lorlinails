@@ -4,6 +4,7 @@
 @use 'layout';
 @use 'components';
 
+// STYLES DE BASE POUR DESKTOP
 body {
     margin: 0;
     padding: 0;
@@ -98,8 +99,11 @@ form {
 
 #payment-message {
     margin-top: 1rem;
-    font-size: 0.9rem;
-    color: variables.$color-primary;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: normal;
+    color: rgba(204, 38, 91, 0.45);
 }
 
 .nbContainer {
@@ -128,18 +132,51 @@ form {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    font-family: variables.$font-family;
 }
 
 #message-container.success {
     background: rgba(200, 255, 200, 0.7); /* Vert pâle pour succès */
-    border: 1px solid green;
 }
 
 #message-container.error {
     background: rgba(255, 200, 200, 0.7); /* Rouge pâle pour erreur */
-    border: 1px solid red;
 }
 
 #message-container.show {
     opacity: 1;
 }
+
+.socialMedia {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.socialMedia a {
+     /* Couleur de base de l'élément <a> */
+    background-color: variables.$color-primary;
+    border: 1px solid variables.$color-primary;
+    border-radius: 20px;
+    padding: 5px 8px 3px 8px;
+}
+
+.socialMedia a svg {
+    fill: #F7CAF5; /* Couleur de base du SVG */
+}
+
+/* Inverser les couleurs lors du clic */
+.socialMedia a:hover {
+    background-color: #F7CAF5; /* Inverser la couleur de l'élément <a> */
+    transform: scale(1.12);
+    transition: color 0.35s fill 0.35s ease-in-out;
+}
+
+.socialMedia a:hover svg {
+    fill: #CC265B; /* Inverser la couleur du SVG */
+    transform: scale(1.12);
+    transition: color 0.35s fill 0.35s ease-in-out;
+}
+

@@ -49,11 +49,12 @@ function displayMessage(type, text) {
     messageContainer.className = ""; // Réinitialise les classes
     messageContainer.classList.add(type); // Ajoute la classe correspondante
     messageContainer.style.display = "block"; // Affiche le conteneur
+    messageContainer.style.opacity = "1"; //Gère l'opacité du conteneur
 
     // Masque le message après 5 secondes (optionnel)
-    setTimeout(() => {
-        messageContainer.style.display = "none";
-    }, 5000);
+    // setTimeout(() => {
+    //     messageContainer.style.display = "none";
+    // }, 5000);
 }
 
 form.addEventListener("submit", async (e) => {
