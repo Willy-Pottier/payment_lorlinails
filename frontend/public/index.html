@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/frontend/dist/main.css">
+    <title>Paiement Acompte</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="/frontend/js/index.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="titleContainer">
+            <h1 class="title">LORLINAILS</h1>
+        </div>
+        <div class="glass-card">
+            <h2>Régler votre acompte</h2>
+            <form id="payment-form">
+                <div id="card-element"></div>
+                <button type="submit" id="submit-button">PAYER 20€</button>
+                <div id="message-container">
+                    <p id="payment-message"></p>
+                </div>
+            </form>
+        </div>
+        <div class="nbContainer">
+            <p class="notabene"><u>À savoir :</u> Lors de votre RDV, les moyens de paiements acceptés sont l’espèce, le virement ou PayPal / Paylib.</p>
+        </div>
+        <div class="socialMedia">
+            <div class="insta">
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

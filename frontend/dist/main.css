@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   margin: 0;
   padding: 0;
@@ -116,4 +117,29 @@ form {
   font-style: italic;
   font-weight: 400;
   line-height: normal;
+}
+
+#message-container {
+  display: none; /* Masqué par défaut */
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: rgba(255, 192, 237, 0.7);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#message-container.success {
+  background: rgba(200, 255, 200, 0.7); /* Vert pâle pour succès */
+  border: 1px solid green;
+}
+
+#message-container.error {
+  background: rgba(255, 200, 200, 0.7); /* Rouge pâle pour erreur */
+  border: 1px solid red;
+}
+
+#message-container.show {
+  opacity: 1;
 }/*# sourceMappingURL=main.css.map */
