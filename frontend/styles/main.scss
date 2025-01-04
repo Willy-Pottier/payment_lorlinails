@@ -5,6 +5,8 @@
 @use 'components';
 
 // STYLES DE BASE POUR DESKTOP
+@media (min-width: 768px) {
+    
 body {
     margin: 0;
     padding: 0;
@@ -178,4 +180,5 @@ form {
     fill: #CC265B; /* Inverser la couleur du SVG */
     transform: scale(1.12);
     transition: color 0.35s fill 0.35s ease-in-out;
+}
 }

@@ -6,15 +6,179 @@
 // /* STYLES SPÉCIFIQUES POUR MOBILE */
 @include mixins.mobile {
     body {
-        background-color: #FFC0ED;
+        margin: 0;
+        padding: 0 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: variables.$font-family;
+        background: linear-gradient(180deg, variables.$color-background2 0%, variables.$color-background 100%);
+        color: variables.$color-primary;
     }
 
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        gap: 36px;
+    }
+    
     .glass-card {
-        padding: 15px;
+        @include mixins.glassmorphism();
+        width: 300px;
+        max-width: 90%;
+        text-align: center;
+        padding: 2rem;
         max-width: 100%;
     }
+    
+    h1 {
+        color: rgba(204, 38, 91, 0.20);
+        text-align: center;
+        font-family: variables.$font-family;
+        font-size: 48px;
+        font-style: italic;
+        font-weight: 800;
+        line-height: normal;
+        letter-spacing: 2.5px;
+    }
+    
+    h2 {
+        font-size: 20px;
+        font-style: italic;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 1.5rem;
+        color: variables.$color-primary;
+    }
 
-    #payment-form {
-        max-width: 90%;  // Réduit la taille du formulaire sur mobile
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #card-element {
+        margin: 1rem 0;
+        padding: 0.5rem;
+        border: 1px solid variables.$color-primary;
+        border-radius: 5px;
+        width: 100%;
+        background: linear-gradient(180deg, variables.$color-background2 0%, variables.$color-background 100%);
+    }
+    
+    #submit-button {
+        background: linear-gradient(180deg, variables.$color-background2 0%, variables.$color-background 100%);
+        color: variables.$color-primary;
+        border: 1px solid variables.$color-primary;
+        padding: 12px 24px;
+        margin-top: 24px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-family: variables.$font-family;
+        font-style: italic;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0px 4px 12px 0px rgba(164, 25, 88, 0.20);
+        transition: 0.350s ease-in-out;
+    }
+    
+    #submit-button:hover {
+        background: linear-gradient(180deg, #A41958 0%, #CC265B 100%);
+        box-shadow: 0px 4px 12px 0px rgba(164, 25, 88, 0.20);
+        border-radius: 6px;
+        color: #F6C4DB;
+        font-family: variables.$font-family;
+        font-size: 14px;
+        font-style: italic;
+        font-weight: 800;
+        line-height: normal;
+    }
+
+    #payment-message {
+        margin-top: 1rem;
+        font-size: 14px;
+        font-style: italic;
+        font-weight: 600;
+        line-height: normal;
+        color: rgba(204, 38, 91, 0.45);
+    }
+    
+    .nbContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 56px;
+    }
+    
+    .notabene {
+        text-align: center;
+        color: var(--Color-primary, #CC265B);
+        font-family: variables.$font-family;
+        font-size: 14px;
+        font-style: italic;
+        font-weight: 400;
+        line-height: normal;
+    }
+    
+    #message-container {
+        display: none; /* Masqué par défaut */
+        margin-top: 20px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        background: rgba(255, 192, 237, 0.7);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        font-family: variables.$font-family;
+    }
+    
+    #message-container.success {
+        background: rgba(200, 255, 200, 0.7); /* Vert pâle pour succès */
+    }
+    
+    #message-container.error {
+        background: rgba(255, 200, 200, 0.7); /* Rouge pâle pour erreur */
+    }
+    
+    #message-container.show {
+        opacity: 1;
+    }
+    
+    .socialMedia {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+    }
+    
+    .socialMedia a {
+         /* Couleur de base de l'élément <a> */
+        background-color: variables.$color-primary;
+        border: 1px solid variables.$color-primary;
+        border-radius: 20px;
+        padding: 5px 8px 3px 8px;
+    }
+    
+    .socialMedia a svg {
+        fill: #F7CAF5; /* Couleur de base du SVG */
+    }
+    
+    /* Inverser les couleurs lors du clic */
+    .socialMedia a:hover {
+        background-color: #F7CAF5; /* Inverser la couleur de l'élément <a> */
+        transform: scale(1.12);
+        transition: color 0.35s fill 0.35s ease-in-out;
+    }
+    
+    .socialMedia a:hover svg {
+        fill: #CC265B; /* Inverser la couleur du SVG */
+        transform: scale(1.12);
+        transition: color 0.35s fill 0.35s ease-in-out;
     }
 }
