@@ -3,7 +3,7 @@ const stripe = Stripe("pk_test_51Qbk50Ba5thYVV4ZWI8SzWTqVHfIRLAyCKTH5a7UIzaabxqf
 const form = document.getElementById("payment-form");
 
 //RECUPERATION DU CLIENTSERVER
-    fetch("http://localhost:4242/create-payment-intent", {
+    fetch("https://paymentlorlinails-production.up.railway.app", {
             method: "POST",
             headers: { "Content-Type": "application/json" }
     })
