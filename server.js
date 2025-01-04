@@ -41,7 +41,7 @@ app.post("/create-payment-intent", async (req, res) => {
 
 // Lancer le serveur
 const PORT = process.env.PORT;
-app.listen(PORT, () => console.log(`Serveur backend lancé sur ${PORT}`));
+app.listen(PORT, '0.0.0.0',() => console.log(`Serveur backend lancé sur ${PORT}`));
 
 app.post("/", (req, res) => {
     res.send("Backend opérationnel !");
