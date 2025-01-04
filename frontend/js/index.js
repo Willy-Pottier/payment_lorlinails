@@ -52,9 +52,9 @@ function displayMessage(type, text) {
     messageContainer.style.opacity = "1"; //Gère l'opacité du conteneur
 
     // Masque le message après 5 secondes (optionnel)
-    // setTimeout(() => {
-    //     messageContainer.style.display = "none";
-    // }, 5000);
+    setTimeout(() => {
+        messageContainer.style.display = "none";
+    }, 5000);
 }
 
 form.addEventListener("submit", async (e) => {
@@ -73,7 +73,7 @@ form.addEventListener("submit", async (e) => {
         displayMessage("error", "Une erreur inattendue s'est produite.");
         console.error(err);
     }
-    // if (error && error.payment_intent.status === "requires_action") {
-    //     displayMessage("error", "Authentification 3D Secure requise mais échouée.");
-    // }    
+    if (error && error.payment_intent.status === "requires_action") {
+        displayMessage("error", "Authentification 3D Secure requise mais échouée.");
+    }    
 });

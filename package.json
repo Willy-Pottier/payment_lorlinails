@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-css": "sass frontend/styles/main.scss frontend/dist/main.css --style compressed",
-    "watch-css": "sass --watch frontend/styles/main.scss:frontend/dist/main.css"
+    "watch-css": "sass --watch frontend/styles/main.scss:frontend/dist/main.css",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
