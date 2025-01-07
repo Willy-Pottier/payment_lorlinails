@@ -14,7 +14,7 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Middleware
 app.use(helmet());
-app.use(cors({ origin: "https://willy-pottier.github.io/payment_lorlinails/",
+app.use(cors({ origin: "https://lorlinails.fr",
     methods: ["POST"]
  })); // Autoriser le frontend local
 app.use(express.json());
