@@ -18,27 +18,36 @@ const form = document.getElementById("payment-form");
 
         console.log("Élément carte créé :", card);
 
-        form.addEventListener("submit", async (event) => {
-            event.preventDefault();
+         // Gestionnaire d'événements pour la soumission du formulaire
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Empêche le comportement par défaut du formulaire
 
-            const { error } = await stripe.confirmCardPayment(clientSecret, {
-                payment_method: {
-                    card: card,
-                },
-            });
+        // Affichage d'un message de chargement avant de soumettre
+        displayMessage("loading", "Traitement du paiement en cours...");
 
-            if (error) {
-                console.error("Erreur de paiement :", error.message);
-                alert("Erreur : " + error.message);
-            } else {
-                console.log("Paiement réussi !");
-                alert("Paiement réussi !");
-            }
+        const { error } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: { card: card }
         });
-    })
-    .catch(error => {
-        console.error("Erreur lors de la création du PaymentIntent :", error);
+
+        // Gestion du paiement
+        if (error) {
+            console.error("Erreur de paiement :", error.message);
+            displayMessage("error", "Erreur de paiement : " + error.message);
+        } else {
+            console.log("Paiement réussi !");
+            displayMessage("success", "Paiement réussi ! Merci !");
+        }
+
+        // Gestion d'authentification supplémentaire (3D Secure)
+        if (error && error.payment_intent.status === "requires_action") {
+            displayMessage("error", "Authentification 3D Secure requise mais échouée.");
+        }
     });
+})
+.catch(error => {
+    console.error("Erreur lors de la création du PaymentIntent :", error);
+    displayMessage("error", "Erreur de création du paiement.");
+});
 
 //GESTION DES MESSAGES
 function displayMessage(type, text) {
@@ -57,23 +66,23 @@ function displayMessage(type, text) {
     }, 5000);
 }
 
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    try {
-        const { error } = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: { card: card },
-        });
+// form.addEventListener("submit", async (e) => {
+//     e.preventDefault();
+//     try {
+//         const { error } = await stripe.confirmCardPayment(clientSecret, {
+//             payment_method: { card: card },
+//         });
 
-        if (error) {
-            displayMessage("error", "Erreur de paiement : " + error.message);
-        } else {
-            displayMessage("success", "Paiement réussi ! Merci !");
-        }
-    } catch (err) {
-        displayMessage("error", "Une erreur inattendue s'est produite.");
-        console.error(err);
-    }
-    if (error && error.payment_intent.status === "requires_action") {
-        displayMessage("error", "Authentification 3D Secure requise mais échouée.");
-    }    
-});
+//         if (error) {
+//             displayMessage("error", "Erreur de paiement : " + error.message);
+//         } else {
+//             displayMessage("success", "Paiement réussi ! Merci !");
+//         }
+//     } catch (err) {
+//         displayMessage("error", "Une erreur inattendue s'est produite.");
+//         console.error(err);
+//     }
+//     if (error && error.payment_intent.status === "requires_action") {
+//         displayMessage("error", "Authentification 3D Secure requise mais échouée.");
+//     }    
+// });
