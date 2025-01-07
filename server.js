@@ -46,3 +46,7 @@ app.listen(PORT, '0.0.0.0',() => console.log(`Serveur backend lancé sur ${PORT}
 app.post("/", (req, res) => {
     res.send("Backend opérationnel !");
 });
+
+app.get("/", (req, res) => {
+    res.send("Backend opérationnel !");
+});
