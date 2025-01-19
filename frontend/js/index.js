@@ -1,5 +1,5 @@
 //INITIALISATION STRIPE
-const stripe = Stripe("pk_test_51Qbk50Ba5thYVV4ZWI8SzWTqVHfIRLAyCKTH5a7UIzaabxqfQ0LdNNavVZSZcLhBKnPm8uX3N1GwevqL8i0HlG3o001S9ZE7vU");
+const stripe = Stripe("pk_live_51Qbk50Ba5thYVV4ZY0TfmQgdVJarHqbSihd2Iyyi9zjFE8OVr0kjrKYnuojE0Eskz0urOdEnL7IU2KavvEfqpygn00HKlh6rtQ");
 const form = document.getElementById("payment-form");
 
 //RECUPERATION DU CLIENTSERVER
